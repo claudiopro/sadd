@@ -57,6 +57,15 @@ test('sadd sums two strings of different length', function(t) {
   t.end();
 });
 
+test('sadd sums two strings bigger than MAX_SAFE_INTEGER', function(t) {
+  t.equals(sadd('9007199254740992', '1'), '9007199254740993');
+  t.equals(sadd('9007199254740992', '10'), '9007199254741002');
+  t.equals(sadd('9007199254740992', '100'), '9007199254741092');
+  t.equals(sadd('9007199254740992', '1000'), '9007199254741992');
+
+  t.end();
+});
+
 test('sadd throws when either argument is not a number', function(t) {
   t.throws(sadd.bind(null, '1', ''));
   t.throws(sadd.bind(null, '11', ''));
