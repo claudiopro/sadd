@@ -1,6 +1,6 @@
 {
   "name": "sadd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Performs the addition of two numbers represented as strings, and returns the result represented as string",
   "main": "index.js",
   "scripts": {
