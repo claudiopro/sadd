@@ -56,3 +56,33 @@ test('sadd sums two strings of different length', function(t) {
 
   t.end();
 });
+
+test('sadd throws when either argument is not a number', function(t) {
+  t.throws(sadd.bind(null, '1', ''));
+  t.throws(sadd.bind(null, '11', ''));
+  t.throws(sadd.bind(null, '999', ''));
+
+  t.throws(sadd.bind(null, '', '1'));
+  t.throws(sadd.bind(null, '', '11'));
+  t.throws(sadd.bind(null, '', '999'));
+
+  t.throws(sadd.bind(null, [], '1'));
+  t.throws(sadd.bind(null, '1', []));
+
+  t.throws(sadd.bind(null, {}, []));
+  t.throws(sadd.bind(null, [], {}));
+
+  t.throws(sadd.bind(null, {}, '1'));
+  t.throws(sadd.bind(null, '1', {}));
+
+  t.throws(sadd.bind(null, undefined, '1'));
+  t.throws(sadd.bind(null, '1', undefined));
+
+  t.throws(sadd.bind(null, {}, {}));
+  t.throws(sadd.bind(null, [], []));
+
+  t.throws(sadd.bind(null, undefined, undefined));
+  t.throws(sadd.bind(null, undefined, undefined));
+
+  t.end();
+});
