@@ -22,4 +22,6 @@ sadd('123', '456');
 
 # License
 
-BSD-3-Clause
+[BSD 3-Clause](http://opensource.org/licenses/BSD-3-Clause)
+
+Copyright (c) Claudio Procida 2015
