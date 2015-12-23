@@ -2,7 +2,10 @@
 
 # sadd
 
-Performs the addition of two numbers represented as strings, and returns the result represented as string
+Performs the addition of two numbers represented as strings, and returns the result represented as string.
+
+Useful when either number you must sum is bigger than the maximum integer that can be exactly represented and
+correctly compared. See [`Number.MAX_SAFE_INTEGER` at MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) for an explanation.
 
 # API
 
