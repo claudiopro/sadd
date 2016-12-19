@@ -67,31 +67,20 @@ test('sadd sums two strings bigger than MAX_SAFE_INTEGER', function(t) {
 });
 
 test('sadd throws when either argument is not a number', function(t) {
-  t.throws(sadd.bind(null, '1', ''));
-  t.throws(sadd.bind(null, '11', ''));
-  t.throws(sadd.bind(null, '999', ''));
+  var INVALID = ['', null, undefined, true, false, [], {}],
+    VALID = ['1', '11', '999'],
+    i, j;
 
-  t.throws(sadd.bind(null, '', '1'));
-  t.throws(sadd.bind(null, '', '11'));
-  t.throws(sadd.bind(null, '', '999'));
+  for (i = 0; i < INVALID.length; i++) {
+    for (j = 0; j < VALID.length; j++) {
+      t.throws(sadd.bind(null, INVALID[i], VALID[j]));
+      t.throws(sadd.bind(null, VALID[j], INVALID[i]));
+    }
 
-  t.throws(sadd.bind(null, [], '1'));
-  t.throws(sadd.bind(null, '1', []));
-
-  t.throws(sadd.bind(null, {}, []));
-  t.throws(sadd.bind(null, [], {}));
-
-  t.throws(sadd.bind(null, {}, '1'));
-  t.throws(sadd.bind(null, '1', {}));
-
-  t.throws(sadd.bind(null, undefined, '1'));
-  t.throws(sadd.bind(null, '1', undefined));
-
-  t.throws(sadd.bind(null, {}, {}));
-  t.throws(sadd.bind(null, [], []));
-
-  t.throws(sadd.bind(null, undefined, undefined));
-  t.throws(sadd.bind(null, undefined, undefined));
+    for (j = 0; j < INVALID.length; j++) {
+      t.throws(sadd.bind(null, INVALID[i], INVALID[j]));
+    }
+  }
 
   t.end();
 });
