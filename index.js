@@ -7,7 +7,7 @@ function sadd(a, b) {
   if (a === undefined || !/^\d+$/.test(a)) {
     throw 'First argument is not a number';
   }
-  if ( b === undefined || !/^\d+$/.test(b)) {
+  if (b === undefined || !/^\d+$/.test(b)) {
     throw 'Second argument is not a number';
   }
 
